@@ -3,6 +3,8 @@
 :root {
     --bg-dark: #10100e;
     --bg-dark-2: #111216;
+    --bg-dark3: #1d2021;
+    --bg-vsc: #001629;
     --bg-light: #F5F5F5;
     --color-dark: #d2d3c9;
     --color-dark-2: #ffd300;
@@ -18,18 +20,14 @@
     box-sizing: border-box;
 }
 
-body {
-    background: var(--bg-dark);
-    color: var(--color-dark-3);
-    font-family: 'Chillax', sans-serif;
+a {
+    text-decoration: none;
 }
 
-.title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+body {
+    background: var(--bg-dark3);
+    color: var(--color-dark-3);
+    font-family: 'Chillax', sans-serif;
 }
 
 .toggle i {
@@ -37,6 +35,17 @@ body {
     flex-direction: row;
     justify-content: flex-end ;
     cursor: pointer;
+}
+
+.span {
+    color: rgba(0, 255, 255, 0.5);
+}
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 main#main-container {
@@ -52,9 +61,7 @@ main#main-container {
 
 .projects article {
     display: flex;
-
     flex-direction: column;
-
     min-height: 12em;
     justify-content: center;
     align-items: center;
@@ -62,29 +69,55 @@ main#main-container {
     position: relative;
     isolation: isolate;
     overflow: hidden;
+    border-radius: 8px;
+
+    transition: all ease 0.2s;
+    /* box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5); */
 }
 
-.projects span {
-    margin-top: 1rem;
+.projects article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
-.projects article * {
+/* .projects article * {
     cursor: pointer;
-}
+} */
 
 .projects img {
-    border-radius: 8px;
     width: 100%;
-    object-fit: cover;
-}
-
-.projects iframe {
     border-radius: 8px;
+    object-fit: cover;
+    
 }
 
-.projects article figure figcaption {
-    margin-top: 0.5em;
+.projects a {
+    margin-top: 0.8em;
     text-align: center;
+    color: var(--color-dark-3);
+
+    padding: 0.5rem;
+
+    border-top: 1px solid rgba(255, 49, 49, 0.5);
+    border-right: 1px solid rgba(0, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.5);
+    border-left: 1px solid rgba(255, 255, 113, 0.5);
+
+    border-radius: 5px;
+    animation: borderColorChanged 2s infinite;
+}
+
+@keyframes borderColorChange {
+    from {
+        border-color: #F5F5F5;
+    }
+    to {
+        border-color: #d2d3c9;
+    }
+}
+
+.projects a:hover {
+    border-bottom: 3px solid rgba(0, 255, 255, 0.5);
 }
 
 
